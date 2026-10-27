@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- PREVIEW ONLY: remove the robots tag before this page goes on the lab site -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta
+    name="description"
+    content="Real-Time Resource Allocation for Learned Multi-UAV Monitoring — COOL Autonomy Lab, UT Austin."
+  />
+
+  <title>Real-Time Resource Allocation for Learned Multi-UAV Monitoring</title>
+
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .nav-wrap {
+      height: 76px;
+    }
+
+    .brand {
+      line-height: 1.15;
+    }
+
+    .brand .brand-copy {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .brand .brand-copy strong {
+      font-size: 18px;
+    }
+
+    .brand .brand-copy small {
+      font-size: 11px;
+      font-weight: 700;
+      color: #5f6f82;
+    }
+
+
+    /* =========================
+       SECTION TITLES
+    ========================= */
+
+    .system-title,
+    .demos h2 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .system-title {
+      margin: 0 0 32px 0;
+    }
+
+
+    /* =========================
+       FIGURES
+    ========================= */
+
+    .media-label {
+      text-align: center;
+    }
+
+    figcaption {
+      text-align: center;
+    }
+
+
+    /* =========================
+       CYBERRUNNER LINK
+    ========================= */
+
+    .cyberrunner-link {
+      color: blue;
+      text-decoration: none;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer-wrap > .contact-footer {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .contact-footer {
+      width: 100%;
+    }
+
+    .contact-title {
+      display: block;
+      width: 100%;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .contact-names {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: flex-start;
+      width: 100%;
+      gap: 60px;
+      margin-bottom: 16px;
+    }
+
+    .contact-names > div {
+      white-space: nowrap;
+    }
+
+    .contact-org {
+      display: block !important;
+      width: 100%;
+      line-height: 1.5;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      .nav-wrap {
+        height: 82px;
+      }
+
+      .brand .brand-copy strong {
+        font-size: 15px;
+      }
+
+      .brand .brand-copy small {
+        font-size: 10px;
+      }
+
+      .system-title,
+      .demos h2 {
+        font-size: 38px;
+        line-height: 1.1;
+      }
+
+      .system-title {
+        margin-bottom: 22px;
+      }
+
+      .contact-names {
+        flex-direction: column !important;
+        gap: 6px;
+      }
+
+      .contact-names > div {
+        white-space: normal;
+      }
+    }
+
+      /* ===== PLACEHOLDER BOXES (mock only — delete when real assets go in) ===== */
+    .ph{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;width:100%;border:2px dashed #9fb0c3;border-radius:13px;background:repeating-linear-gradient(135deg,#eef2f6 0 14px,#f7f9fb 14px 28px);color:#42566d;text-align:center;padding:18px;box-sizing:border-box}
+    .ph b{font-size:15px;color:#0f2a44}
+    .ph small{font-size:12px;color:#5f6f82;max-width:420px}
+    .ph .tag{font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:#c25a00}
+    .ph.r43{aspect-ratio:4/3;min-height:380px}
+    .ph.r169{aspect-ratio:16/9}
+    .ph.wide{aspect-ratio:21/9}
+    .ph.sq{aspect-ratio:1/1;max-width:300px}
+    .draft{background:#fff7ef;border-bottom:2px dotted #c25a00}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+    .results-grid figure{margin:0;padding:14px}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+    @media(max-width:650px){.results-grid,.facts{grid-template-columns:1fr}}
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="#top">
+      <span class="brand-copy">
+        <strong>Real-Time Resource Allocation for Learned Multi-UAV Monitoring</strong>
+        <small>COOL Autonomy Lab &middot; The University of Texas at Austin</small>
+      </span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ========================= 1. OVERVIEW (same band/two-column layout as TAG) ========================= -->
+  <section class="band" id="overview">
+    <div class="section">
+      <div class="eyebrow">Multi-UAV monitoring &middot; distributed optimization &middot; hardware-validated</div>
+      <h1 class="system-title">Real-Time Resource Allocation for Learned Multi-UAV Monitoring</h1>
+
+      <div class="system-grid" style="align-items:center">
+        <div>
+          <p class="lead" style="margin-left:0;margin-right:0">
+            <span class="draft">[DRAFT TEXT 1 — what &amp; why]</span>
+            A team of small UAVs monitors a spreading thermal field, such as a wildfire front, and must decide
+            <strong>in real time how much of the field each vehicle covers</strong>.
+            Each UAV flies a learned coverage policy, and a distributed resource-allocation layer assigns every
+            vehicle its coverage radius so the team follows the demand while a shared budget constraint is
+            respected at every instant.
+          </p>
+          <p class="lead" style="margin-left:0;margin-right:0">
+            <span class="draft">[DRAFT TEXT 2 — what we show]</span>
+            We present a real-time distributed allocation method that keeps the allocation feasible while the
+            demand changes, compare it against online dual methods from the literature, and demonstrate the
+            full stack on <strong>four Crazyflie quadrotors in a motion-capture arena</strong>.
+          </p>
+          <div class="callout warning">
+            <strong>Status:</strong> paper under review. This page is a private mock. No paper link, author list,
+            or PDF until the decision. <em>(Delete this box before publishing.)</em>
+          </div>
+        </div>
+
+        <figure class="card image-card large overview-photo">
+          <div class="ph r43">
+            <span class="tag">Slot A &middot; hero image</span>
+            <b>One image that says "4 drones over a fire"</b>
+            <small>~4:3, ≥1600 px wide, JPG/PNG ≤ 1 MB. Rendered thermal field with the four coverage sectors,
+            or a drone photo with the heat-map overlay. Shown at ~450 px wide next to the text.</small>
+          </div>
+          <figcaption>[CAPTION A — one line]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 2. APPROACH (new section, not in TAG) ========================= -->
+  <section class="section" id="approach">
+    <div class="section-label">Approach</div>
+    <h2 class="system-title" style="font-size:40px;margin-top:10px">Sense &rarr; allocate &rarr; plan</h2>
+    <figure class="card image-card" style="padding:14px;margin:0">
+      <div class="ph wide">
+        <span class="tag">Slot B &middot; framework diagram</span>
+        <b>The pipeline figure (thermal demand &rarr; allocator &rarr; learned planner &rarr; UAVs)</b>
+        <small>Wide, ~21:9 to 16:9, SVG or PNG ≥ 2000 px. Candidate: the paper's framework figure, re-exported
+        without the "do not distribute" header.</small>
+      </div>
+      <figcaption>[CAPTION B — one or two lines describing the loop]</figcaption>
+    </figure>
+    <div class="facts">
+      <div class="fact"><strong>Sense</strong><span><span class="draft">[DRAFT]</span> Each UAV maps the thermal field in its sector and reports a demand weight.</span></div>
+      <div class="fact"><strong>Allocate</strong><span><span class="draft">[DRAFT]</span> UAVs run a distributed gradient method on the shared budget; the allocation stays feasible at every step.</span></div>
+      <div class="fact"><strong>Plan</strong><span><span class="draft">[DRAFT]</span> A learned coverage policy turns each allocation into a flight path.</span></div>
+      <div class="fact"><strong>Fly</strong><span><span class="draft">[DRAFT]</span> Crazyflies execute the paths under motion capture; the loop repeats in real time.</span></div>
+    </div>
+  </section>
+
+  <!-- ========================= 3. DEMOS (identical grid to TAG) ========================= -->
+  <section class="section demos band" id="demos" style="width:100%;padding-left:0;padding-right:0">
+    <div class="section" style="padding-top:0;padding-bottom:0">
+      <h2>Demos</h2>
+      <div class="demo-grid">
+        <figure class="card media-card">
+          <div class="media-label">REAL HARDWARE</div>
+          <div class="ph r169">
+            <span class="tag">Slot C &middot; hardware teaser</span>
+            <b>30–60 s cut, autoplay, muted, loop</b>
+            <small>16:9, H.264 MP4, ≤ 20 MB. Just the flight + overlay, no title cards. Full-length run goes
+            in Slot C2 below.</small>
+          </div>
+          <figcaption>[CAPTION C] Four Crazyflies tracking a moving fire &middot; <a href="#full-run">watch the full run</a></figcaption>
+        </figure>
+
+        <figure class="card media-card">
+          <div class="media-label">SIMULATION</div>
+          <div class="ph r169">
+            <span class="tag">Slot D &middot; simulation</span>
+            <b>Undecided: video, GIF, or stills</b>
+            <small>Same 16:9 box as the hardware card. Options listed in the chat; decide later.</small>
+          </div>
+          <figcaption>[CAPTION D]</figcaption>
+        </figure>
+      </div>
+
+      <figure class="card media-card" id="full-run" style="margin-top:18px">
+        <div class="media-label">FULL HARDWARE RUN</div>
+        <div class="ph r169" style="aspect-ratio:auto;min-height:160px">
+          <span class="tag">Slot C2 &middot; full video</span>
+          <b>Complete demo (~4.5 min), controls on, no autoplay</b>
+          <small>Hosted in the repo if ≤ ~50 MB after compression, otherwise an embedded YouTube/Box link.</small>
+        </div>
+        <figcaption>[CAPTION C2]</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========================= 4. RESULTS (new section) ========================= -->
+  <section class="section" id="results">
+    <div class="section-label">Results</div>
+    <h2 class="system-title" style="font-size:40px;margin-top:10px">What the allocator buys you</h2>
+    <p class="lead" style="margin-left:0;margin-right:0">
+      <span class="draft">[DRAFT TEXT 3]</span> Two figures, one sentence each. Numbers stay in the captions,
+      not the prose.
+    </p>
+    <div class="results-grid">
+      <figure class="card image-card">
+        <div class="ph r43" style="min-height:300px">
+          <span class="tag">Slot E &middot; result figure 1</span>
+          <b>Pick one: Result 1 (static convergence) or Result 2 (moving fire, load vs time, ours vs baselines)</b>
+          <small>PNG ≥ 1600 px wide or SVG, from the remake scripts.</small>
+        </div>
+        <figcaption>[CAPTION E]</figcaption>
+      </figure>
+      <figure class="card image-card">
+        <div class="ph r43" style="min-height:300px">
+          <span class="tag">Slot F &middot; result figure 2</span>
+          <b>Pick one: Result 3 (closed-loop, packet loss) or the hardware drop-count figure</b>
+          <small>Same format as Slot E.</small>
+        </div>
+        <figcaption>[CAPTION F]</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========================= 5. PLATFORM (optional) ========================= -->
+  <section class="band soft" id="platform">
+    <div class="section">
+      <div class="section-label">Platform</div>
+      <div class="system-grid" style="align-items:center">
+        <div>
+          <h2 class="system-title" style="font-size:40px;margin-top:10px">Hardware and software stack</h2>
+          <div class="stats three-stats">
+            <div><strong>4</strong><span>Crazyflie 2.1 quadrotors</span></div>
+            <div><strong>Vicon</strong><span>motion capture, single-marker tracking</span></div>
+            <div><strong>ROS 2</strong><span>crazyswarm2 on Jazzy; CrazySim for simulation</span></div>
+          </div>
+          <p class="lead" style="margin-left:0;margin-right:0;margin-top:18px">
+            <span class="draft">[DRAFT TEXT 4]</span> One short paragraph on the arena and what runs where
+            (allocator on the ground station vs on-board, planner rate, radio).
+          </p>
+        </div>
+        <figure class="card image-card large">
+          <div class="ph r43">
+            <span class="tag">Slot G &middot; setup photo (optional)</span>
+            <b>Photo of the arena: drones on the floor, Vicon cameras visible</b>
+            <small>You said you'd take this one. ~4:3, ≥1600 px.</small>
+          </div>
+          <figcaption>[CAPTION G]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 6. PAPER & CODE (hidden until decision) ========================= -->
+  <section class="section" id="paper" style="padding-top:60px">
+    <div class="section-label">Paper &amp; code</div>
+    <div class="actions" style="justify-content:flex-start">
+      <a class="btn primary" href="#" aria-disabled="true">Paper (PDF) — after decision</a>
+      <a class="btn" href="#" aria-disabled="true">Code — repo link TBD</a>
+      <a class="btn" href="#" aria-disabled="true">BibTeX — after decision</a>
+    </div>
+    <p class="affiliation" style="margin-top:14px"><span class="draft">[DRAFT]</span> Authors line goes here once the paper is public.</p>
+  </section>
+
+</main>
+
+<!-- ========================= FOOTER (copied from TAG, names swapped) ========================= -->
+<footer>
+  <div class="footer-wrap">
+    <div class="contact-footer">
+      <div class="contact-title">Contact</div>
+      <div class="contact-names">
+        <div>[YOUR NAME] - <a href="mailto:you@utexas.edu">[your UT email]</a></div>
+        <div>Dr. Thinh Doan - <a href="mailto:thinhdoan@utexas.edu">thinhdoan@utexas.edu</a></div>
+      </div>
+      <div class="contact-org">
+        <a href="https://coolautonomylab.github.io/" target="_blank" rel="noreferrer">
+          Control, Optimization, and Online Learning (COOL) for Autonomy Lab
+        </a><br>
+        The University of Texas at Austin
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
