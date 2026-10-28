@@ -273,13 +273,16 @@
       <div class="demo-grid">
         <figure class="card media-card">
           <div class="media-label">REAL HARDWARE</div>
-          <div class="ph r169">
-            <span class="tag">Slot C &middot; hardware teaser</span>
-            <b>30–60 s cut, autoplay, muted, loop</b>
-            <small>16:9, H.264 MP4, ≤ 20 MB. Just the flight + overlay, no title cards. Full-length run goes
-            in Slot C2 below.</small>
-          </div>
-          <figcaption>[CAPTION C] Four Crazyflies tracking a moving fire &middot; <a href="#full-run">watch the full run</a></figcaption>
+          <video
+            src="assets/videos/hw_teaser.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            controls
+            preload="metadata"
+          ></video>
+          <figcaption><span class="draft">[DRAFT CAPTION C]</span> Four Crazyflies tracking a moving fire (excerpt, 1:00–1:30 of the full run) &middot; <a href="#full-run">watch the full run</a></figcaption>
         </figure>
 
         <figure class="card media-card">
@@ -295,12 +298,13 @@
 
       <figure class="card media-card" id="full-run" style="margin-top:18px">
         <div class="media-label">FULL HARDWARE RUN</div>
-        <div class="ph r169" style="aspect-ratio:auto;min-height:160px">
-          <span class="tag">Slot C2 &middot; full video</span>
-          <b>Complete demo (~4.5 min), controls on, no autoplay</b>
-          <small>Hosted in the repo if ≤ ~50 MB after compression, otherwise an embedded YouTube/Box link.</small>
-        </div>
-        <figcaption>[CAPTION C2]</figcaption>
+        <video
+          src="assets/videos/hw_full.mp4"
+          controls
+          playsinline
+          preload="metadata"
+        ></video>
+        <figcaption><span class="draft">[DRAFT CAPTION C2]</span> Complete hardware run (4:11, starts at 0:20 of the original recording).</figcaption>
       </figure>
     </div>
   </section>
