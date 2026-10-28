@@ -251,19 +251,18 @@
     <div class="section-label">Approach</div>
     <h2 class="system-title" style="font-size:40px;margin-top:10px">Sense &rarr; allocate &rarr; plan</h2>
     <figure class="card image-card" style="padding:14px;margin:0">
-      <div class="ph wide">
-        <span class="tag">Slot B &middot; framework diagram</span>
-        <b>The pipeline figure (thermal demand &rarr; allocator &rarr; learned planner &rarr; UAVs)</b>
-        <small>Wide, ~21:9 to 16:9, SVG or PNG ≥ 2000 px. Candidate: the paper's framework figure, re-exported
-        without the "do not distribute" header.</small>
-      </div>
-      <figcaption>[CAPTION B — one or two lines describing the loop]</figcaption>
+      <img
+        src="assets/images/framework.png"
+        alt="Framework diagram: environment and demand feed a distributed allocation layer (DAGM), a learned motion planning layer (RL policy), and a control/safety layer, which drive four Crazyflies; observations and updated priorities close the loop"
+        style="width:100%;display:block;border-radius:13px"
+      />
+      <figcaption><span class="draft">[DRAFT CAPTION B]</span> The thermal field sets a monitoring demand. A distributed allocation layer (DAGM) assigns each UAV a coverage allocation, a learned planner turns it into motion, and a control and safety layer flies it. Observations close the loop.</figcaption>
     </figure>
     <div class="facts">
-      <div class="fact"><strong>Sense</strong><span><span class="draft">[DRAFT]</span> Each UAV maps the thermal field in its sector and reports a demand weight.</span></div>
-      <div class="fact"><strong>Allocate</strong><span><span class="draft">[DRAFT]</span> UAVs run a distributed gradient method on the shared budget; the allocation stays feasible at every step.</span></div>
-      <div class="fact"><strong>Plan</strong><span><span class="draft">[DRAFT]</span> A learned coverage policy turns each allocation into a flight path.</span></div>
-      <div class="fact"><strong>Fly</strong><span><span class="draft">[DRAFT]</span> Crazyflies execute the paths under motion capture; the loop repeats in real time.</span></div>
+      <div class="fact"><strong>Environment &amp; demand</strong><span><span class="draft">[DRAFT]</span> The thermal field T(x,t) defines where monitoring is needed, summarised as a demand q(x,t).</span></div>
+      <div class="fact"><strong>Distributed allocation</strong><span><span class="draft">[DRAFT]</span> UAVs run DAGM on the shared budget; every published allocation r<sup>k</sup> is constraint-feasible.</span></div>
+      <div class="fact"><strong>Learned motion planning</strong><span><span class="draft">[DRAFT]</span> An RL policy π(a | o, r<sup>k</sup>) turns each allocation into a coverage path.</span></div>
+      <div class="fact"><strong>Control &amp; safety</strong><span><span class="draft">[DRAFT]</span> Tracking and collision avoidance on the Crazyflies close the loop with new observations.</span></div>
     </div>
   </section>
 
