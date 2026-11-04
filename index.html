@@ -217,17 +217,17 @@
         <div>
           <p class="lead" style="margin-left:0;margin-right:0">
             <span class="draft">[DRAFT TEXT 1 — one paragraph]</span>
-            A team of small UAVs monitors a spreading thermal field, such as a wildfire front. It is a
-            hierarchical control loop: each vehicle flies a learned coverage policy, and above them a fleet-
-            level allocator assigns each vehicle its coverage radius under a budget the whole fleet has to
-            share, in this case communication. As the front moves and demand shifts, the allocator does not
-            always have time to work out the best split; sometimes it has to hand out a suboptimal allocation
-            and move on. Even then, that allocation has to be feasible. Overstep the shared budget and the
-            visual feeds drop, and in a monitoring task that means losing time-sensitive data. So we built a
-            testbed that puts allocators through exactly this setting: baselines from dual decomposition, primal
-            decomposition and online primal–dual methods, and our own allocator, which <strong>keeps every
-            intermediate allocation feasible while the demand changes</strong>. We then flew the full stack on
-            four Crazyflie quadrotors in a motion-capture arena.
+            In a hierarchical control loop for monitoring, a fleet-level resource has to be shared, in this case
+            communication. A team of small UAVs tracks a spreading thermal field, such as a wildfire front: each
+            vehicle flies a learned coverage policy, and an allocator above them decides each vehicle’s share of
+            the budget, which sets its coverage radius. As the front moves and the demand shifts, the allocator
+            does not always have time to work out the best split; sometimes it has to hand out a suboptimal
+            allocation and move on. Even then, that allocation has to be feasible. Overstep the shared budget
+            and the visual feeds drop, and in a monitoring task that means losing time-sensitive data. So we
+            built a testbed that puts allocators through exactly this setting: baselines from dual
+            decomposition, primal decomposition and online primal–dual methods, and our own allocator, which
+            <strong>keeps every intermediate allocation feasible while the demand changes</strong>. We then flew
+            the full stack on four Crazyflie quadrotors in a motion-capture arena.
           </p>
           <div class="callout warning">
             <strong>Status:</strong> paper under review. This page is a private mock. No paper link, author list,
