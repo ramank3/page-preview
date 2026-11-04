@@ -216,19 +216,18 @@
       <div class="system-grid" style="align-items:center">
         <div>
           <p class="lead" style="margin-left:0;margin-right:0">
-            <span class="draft">[DRAFT TEXT 1 — what &amp; why]</span>
-            A team of small UAVs monitors a spreading thermal field, such as a wildfire front, and must decide
-            <strong>in real time how much of the field each vehicle covers</strong>.
-            Each UAV flies a learned coverage policy, and a distributed resource-allocation layer assigns every
-            vehicle its coverage radius so the team follows the demand while a shared budget constraint is
-            respected at every instant.
-          </p>
-          <p class="lead" style="margin-left:0;margin-right:0">
-            <span class="draft">[DRAFT TEXT 2 — what we show]</span>
-            We present a real-time distributed allocation method that keeps the allocation feasible while the
-            demand changes, benchmark it against a broad set of distributed optimizers for the same class of
-            problem, spanning dual decomposition, primal decomposition and online primal&ndash;dual methods, and
-            demonstrate the full stack on <strong>four Crazyflie quadrotors in a motion-capture arena</strong>.
+            <span class="draft">[DRAFT TEXT 1 — one paragraph]</span>
+            A team of small UAVs monitors a spreading thermal field, such as a wildfire front. It is a
+            hierarchical control loop: each vehicle flies a learned coverage policy, and above them a fleet-
+            level allocator assigns each vehicle its coverage radius under a budget the whole fleet has to
+            share, in this case communication. As the front moves and demand shifts, the allocator does not
+            always have time to work out the best split; sometimes it has to hand out a suboptimal allocation
+            and move on. Even then, that allocation has to be feasible. Overstep the shared budget and the
+            visual feeds drop, and in a monitoring task that means losing time-sensitive data. So we built a
+            testbed that puts allocators through exactly this setting: baselines from dual decomposition, primal
+            decomposition and online primal–dual methods, and our own allocator, which <strong>keeps every
+            intermediate allocation feasible while the demand changes</strong>. We then flew the full stack on
+            four Crazyflie quadrotors in a motion-capture arena.
           </p>
           <div class="callout warning">
             <strong>Status:</strong> paper under review. This page is a private mock. No paper link, author list,
@@ -239,7 +238,7 @@
         <figure class="card image-card large overview-photo">
           <img
             src="assets/images/hero.jpg"
-            alt="Four Crazyflie quadrotors over a circular forest area with a fire at the centre; each drone covers one translucent sector"
+            alt="Four Crazyflie quadrotors over a forest fire; each drone's coverage footprint is drawn as a translucent blue sector on a ground grid"
           />
           <figcaption><span class="draft">[DRAFT CAPTION A]</span> Four UAVs share one monitoring area. Each covers a sector whose radius is set by the allocator in real time.</figcaption>
         </figure>
@@ -267,38 +266,12 @@
     </div>
   </section>
 
-  <!-- ========================= 3. DEMOS (identical grid to TAG) ========================= -->
+  <!-- ========================= 3. DEMO (single full-width card; teaser + simulation cards removed on user feedback) ========================= -->
   <section class="section demos band" id="demos" style="width:100%;padding-left:0;padding-right:0">
     <div class="section" style="padding-top:0;padding-bottom:0">
       <h2>Demos</h2>
-      <div class="demo-grid">
-        <figure class="card media-card">
-          <div class="media-label">REAL HARDWARE</div>
-          <video
-            src="assets/videos/hw_teaser.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-            controls
-            preload="metadata"
-          ></video>
-          <figcaption><span class="draft">[DRAFT CAPTION C]</span> Four Crazyflies tracking a moving fire (excerpt, 0:35–1:00 of the full run) &middot; <a href="#full-run">watch the full run</a></figcaption>
-        </figure>
-
-        <figure class="card media-card">
-          <div class="media-label">SIMULATION</div>
-          <div class="ph r169">
-            <span class="tag">Slot D &middot; simulation</span>
-            <b>Undecided: video, GIF, or stills</b>
-            <small>Same 16:9 box as the hardware card. Options listed in the chat; decide later.</small>
-          </div>
-          <figcaption>[CAPTION D]</figcaption>
-        </figure>
-      </div>
-
-      <figure class="card media-card" id="full-run" style="margin-top:18px">
-        <div class="media-label">FULL HARDWARE RUN</div>
+      <figure class="card media-card" id="full-run" style="margin-top:34px">
+        <div class="media-label">REAL HARDWARE</div>
         <video
           src="assets/videos/hw_full.mp4"
           controls
@@ -315,59 +288,50 @@
     <div class="section-label">Results</div>
     <h2 class="system-title" style="font-size:40px;margin-top:10px">What the allocator buys you</h2>
     <p class="lead" style="margin-left:0;margin-right:0">
-      <span class="draft">[DRAFT TEXT 3]</span> Two figures, one sentence each. Numbers stay in the captions,
-      not the prose.
+      <span class="draft">[DRAFT TEXT 3]</span> One moving-fire run, read in three steps: what the fire asks for,
+      how each allocator&rsquo;s joint load answers against the budget, and how long each spends over the limit.
+      The last figure closes the loop with the learned planner on the real UAVs.
     </p>
-    <div class="results-grid">
+
+    <figure class="card image-card" style="padding:14px;margin:34px 0 0 0">
+      <a href="assets/images/result2_load.png" target="_blank" rel="noreferrer" title="Open full size"><img
+        src="assets/images/result2_load.png"
+        alt="Joint load over time for DAGM, online primal-dual, dual decomposition and primal decomposition on the moving fire: full range on top, zoom on the band around the budget below, with B = 8 and B_op = 8.15 marked"
+        style="width:100%;display:block;border-radius:13px;background:white"
+      /></a>
+      <figcaption><span class="draft">[DRAFT CAPTION E2]</span> Joint load Σ<sub>i</sub> r<sub>i</sub><sup>2</sup> of the four allocators on the moving fire against the budget B = 8 and the operating limit B<sub>op</sub> = 8.15 (top: full range; bottom: zoom on the band around the budget; shaded: wind handoff, 150&ndash;210 s). DAGM (ours) ramps up to the budget and never crosses B<sub>op</sub>; each baseline overshoots it for tens of seconds while the demand rises or shifts between sectors.</figcaption>
+    </figure>
+
+    <div class="results-grid" style="margin-top:18px">
       <figure class="card image-card">
-        <a href="assets/images/result2_timeline.png" target="_blank" rel="noreferrer" title="Open full size"><img
-          src="assets/images/result2_timeline.png"
-          alt="Moving-fire experiment: fire snapshots, per-UAV demand, and joint load over time for DAGM, online primal-dual, dual decomposition and primal decomposition, with the time each spends above the operating budget"
-          style="width:100%;display:block;border-radius:13px;background:white"
-        /></a>
-        <figcaption><span class="draft">[DRAFT CAPTION E]</span> Moving fire: joint load Σ<sub>i</sub> r<sub>i</sub><sup>2</sup> over time at B<sub>op</sub> = 8.15. DAGM (ours) never exceeds B<sub>op</sub>; online primal-dual (Tang 2022), dual decomposition (Falsone 2017) and primal decomposition (Camisa 2021) exceed it for 92 s, 98 s and 74 s.</figcaption>
+      <a href="assets/images/result2_demand.png" target="_blank" rel="noreferrer" title="Open full size"><img
+        src="assets/images/result2_demand.png"
+        alt="Sector demand q_i(t) for the four UAVs over the 360 s moving-fire run"
+        style="width:100%;display:block;border-radius:13px;background:white"
+      /></a>
+        <figcaption><span class="draft">[DRAFT CAPTION E1]</span> What the fire asks for: sector demand q<sub>i</sub>(t) = w<sub>i</sub>/80 from the thermal map, refreshed every 2 s. The fire grows in cf1&rsquo;s and cf2&rsquo;s sectors first; the wind handoff (shaded) moves it towards cf3 and cf4.</figcaption>
       </figure>
       <figure class="card image-card">
-        <a href="assets/images/result3_snapshots.png" target="_blank" rel="noreferrer" title="Open full size"><img
-          src="assets/images/result3_snapshots.png"
-          alt="Closed-loop snapshots at 35, 100, 126 and 160 seconds for each allocator, showing the coverage map and the joint load L measured from the UAV positions against the operating budget"
-          style="width:100%;display:block;border-radius:13px;background:white"
-        /></a>
-        <figcaption><span class="draft">[DRAFT CAPTION F]</span> Closed loop with the learned planner: coverage maps and joint load L measured from UAV positions at t = 35, 100, 126 and 160 s for each allocator (common bar scale 0–9, B<sub>op</sub> = 8.15 marked). <span class="draft">[what do the grey spheres mark?]</span></figcaption>
+      <a href="assets/images/result2_violation.png" target="_blank" rel="noreferrer" title="Open full size"><img
+        src="assets/images/result2_violation.png"
+        alt="Timeline of the intervals each allocator spends above B_op, with the total seconds per allocator"
+        style="width:100%;display:block;border-radius:13px;background:white"
+      /></a>
+        <figcaption><span class="draft">[DRAFT CAPTION E3]</span> Time above B<sub>op</sub> over the 360 s run: online primal&ndash;dual (Tang 2022) 92 s, dual decomposition (Falsone 2017) 98 s, primal decomposition (Camisa 2021) 74 s, DAGM (ours) 0 s.</figcaption>
       </figure>
     </div>
+
+    <figure class="card image-card" style="padding:14px;margin:18px 0 0 0">
+      <a href="assets/images/result3_snapshots.png" target="_blank" rel="noreferrer" title="Open full size"><img
+        src="assets/images/result3_snapshots.png"
+        alt="Closed-loop snapshots at 35, 100, 126 and 160 seconds for each allocator, showing the coverage map and the joint load L measured from the UAV positions against the operating budget"
+        style="width:100%;display:block;border-radius:13px;background:white"
+      /></a>
+      <figcaption><span class="draft">[DRAFT CAPTION F]</span> Closed loop with the learned planner: coverage maps and joint load L measured from UAV positions at t = 35, 100, 126 and 160 s for each allocator (common bar scale 0–9, B<sub>op</sub> = 8.15 marked). <span class="draft">[what do the grey spheres mark?]</span></figcaption>
+    </figure>
   </section>
 
-  <!-- ========================= 5. PLATFORM (optional) ========================= -->
-  <section class="band soft" id="platform">
-    <div class="section">
-      <div class="section-label">Platform</div>
-      <div class="system-grid" style="align-items:center">
-        <div>
-          <h2 class="system-title" style="font-size:40px;margin-top:10px">Hardware and software stack</h2>
-          <div class="stats three-stats">
-            <div><strong>4</strong><span>Crazyflie 2.1 quadrotors</span></div>
-            <div><strong>Vicon</strong><span>motion capture, single-marker tracking</span></div>
-            <div><strong>ROS 2</strong><span>crazyswarm2 on Jazzy; CrazySim for simulation</span></div>
-          </div>
-          <p class="lead" style="margin-left:0;margin-right:0;margin-top:18px">
-            <span class="draft">[DRAFT TEXT 4]</span> One short paragraph on the arena and what runs where
-            (allocator on the ground station vs on-board, planner rate, radio).
-          </p>
-        </div>
-        <figure class="card image-card large">
-          <div class="ph r43">
-            <span class="tag">Slot G &middot; setup photo (optional)</span>
-            <b>Photo of the arena: drones on the floor, Vicon cameras visible</b>
-            <small>You said you'd take this one. ~4:3, ≥1600 px.</small>
-          </div>
-          <figcaption>[CAPTION G]</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= 6. PAPER & CODE (hidden until decision) ========================= -->
+  <!-- ========================= 5. PAPER & CODE (hidden until decision) ========================= -->
   <section class="section" id="paper" style="padding-top:60px">
     <div class="section-label">Paper &amp; code</div>
     <div class="actions" style="justify-content:flex-start">
