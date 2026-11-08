@@ -182,6 +182,7 @@
     .results-grid figure{margin:0;padding:14px}
     .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
     @media(max-width:650px){.results-grid,.facts{grid-template-columns:1fr}}
+      .overview-photo{padding:10px;margin-top:34px}.overview-photo img{width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%}
   </style>
 
 </head>
@@ -213,36 +214,11 @@
       <div class="eyebrow">Multi-UAV monitoring &middot; distributed optimization &middot; hardware-validated</div>
       <h1 class="system-title">Real-Time Resource Allocation for Learned Multi-UAV Monitoring</h1>
 
-      <div class="system-grid" style="align-items:center">
-        <div>
-          <p class="lead" style="margin-left:0;margin-right:0">
-            <span class="draft">[DRAFT TEXT 1 — one paragraph]</span>
-            In a hierarchical control loop for monitoring, a fleet-level resource has to be shared, in this case
-            communication. A team of small UAVs tracks a spreading thermal field, such as a wildfire front: each
-            vehicle flies a learned coverage policy, and an allocator above them decides each vehicle’s share of
-            the budget, which sets its coverage radius. As the front moves and the demand shifts, the allocator
-            does not always have time to work out the best split; sometimes it has to hand out a suboptimal
-            allocation and move on. Even then, that allocation has to be feasible. Overstep the shared budget
-            and the visual feeds drop, and in a monitoring task that means losing time-sensitive data. So we
-            built a testbed that puts allocators through exactly this setting: baselines from dual
-            decomposition, primal decomposition and online primal–dual methods, and our own allocator, which
-            <strong>keeps every intermediate allocation feasible while the demand changes</strong>. We then flew
-            the full stack on four Crazyflie quadrotors in a motion-capture arena.
-          </p>
-          <div class="callout warning">
-            <strong>Status:</strong> paper under review. This page is a private mock. No paper link, author list,
-            or PDF until the decision. <em>(Delete this box before publishing.)</em>
-          </div>
-        </div>
+      <figure class="card image-card large overview-photo"><img src="assets/images/hero.jpg" alt="Four Crazyflie quadrotors over a forest fire; each drone's coverage footprint is drawn as a translucent blue sector on a ground grid" /><figcaption><span class="draft">[DRAFT CAPTION A]</span> Four UAVs share one monitoring area. Each covers a sector whose radius is set by the allocator in real time.</figcaption></figure>
 
-        <figure class="card image-card large overview-photo">
-          <img
-            src="assets/images/hero.jpg"
-            alt="Four Crazyflie quadrotors over a forest fire; each drone's coverage footprint is drawn as a translucent blue sector on a ground grid"
-          />
-          <figcaption><span class="draft">[DRAFT CAPTION A]</span> Four UAVs share one monitoring area. Each covers a sector whose radius is set by the allocator in real time.</figcaption>
-        </figure>
-      </div>
+      <p class="lead" style="margin-left:0;margin-right:0;max-width:900px;margin-top:30px">
+        Teams of unmanned aerial vehicles (UAVs) offer a powerful tool to continuously monitor unknown environments. The data they collect can be used to construct maps of unknown areas that give human commanders the situational awareness needed for time-critical decisions. For example, the maps can help to select safe escape routes or decide where to redirect robots to search for a lost person. In practice, however, these teams must operate under tight limits on onboard computation and shared communication bandwidth, so where each vehicle flies is inseparable from how scarce resources are divided among them. This project addresses that coupling by formulating multi-UAV path planning as a resource allocation problem, in which resources such as bandwidth are allocated across agents in service of mapping quality. Rather than treating resource allocation, motion planning, and low-level control as separate layers, we integrate them into a single unified framework. Every component is solved within the time constraint set by the fastest dynamics in the system, which in our case is the low-level controller. Under such restrictive constraints, optimal solutions to the resource allocation and motion planning problems cannot be computed in real time. Instead, we seek solutions that are feasible at every time step, with guaranteed bounds on suboptimality. Here, feasibility means preserving communication among the drones and with the central server, which directly determines the quality of the maps. At the core of this framework is a novel resource allocation method that guarantees these constraints are satisfied even as the team adapts to new information. The result is a principled approach to resilient, real-time multi-robot monitoring that can directly support human decision-making in high-stakes missions.
+      </p>
     </div>
   </section>
 
