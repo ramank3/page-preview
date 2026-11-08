@@ -182,7 +182,9 @@
     .results-grid figure{margin:0;padding:14px}
     .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
     @media(max-width:650px){.results-grid,.facts{grid-template-columns:1fr}}
-      .overview-photo{padding:10px;margin-top:34px}.overview-photo img{width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%}
+    .overview-photo{padding:10px;margin-top:34px}
+    .image-card.large.overview-photo img{width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%}
+    @media(max-width:650px){.image-card.large.overview-photo img{aspect-ratio:auto;object-fit:contain}}
   </style>
 
 </head>
