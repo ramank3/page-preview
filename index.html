@@ -185,6 +185,8 @@
     .overview-photo{padding:10px;margin-top:34px}
     .image-card.large.overview-photo img{width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%}
     @media(max-width:650px){.image-card.large.overview-photo img{aspect-ratio:auto;object-fit:contain}}
+    .overview-text{margin:30px 0 0;max-width:none;columns:2;column-gap:44px;text-align:left}
+    @media(max-width:920px){.overview-text{columns:1}}
   </style>
 
 </head>
@@ -218,7 +220,7 @@
 
       <figure class="card image-card large overview-photo"><img src="assets/images/hero.jpg" alt="Four Crazyflie quadrotors over a forest fire; each drone's coverage footprint is drawn as a translucent blue sector on a ground grid" /><figcaption><span class="draft">[DRAFT CAPTION A]</span> Four UAVs share one monitoring area. Each covers a sector whose radius is set by the allocator in real time.</figcaption></figure>
 
-      <p class="lead" style="margin-left:0;margin-right:0;max-width:900px;margin-top:30px">
+      <p class="lead overview-text">
         Teams of unmanned aerial vehicles (UAVs) offer a powerful tool to continuously monitor unknown environments. The data they collect can be used to construct maps of unknown areas that give human commanders the situational awareness needed for time-critical decisions. For example, the maps can help to select safe escape routes or decide where to redirect robots to search for a lost person. In practice, however, these teams must operate under tight limits on onboard computation and shared communication bandwidth, so where each vehicle flies is inseparable from how scarce resources are divided among them. This project addresses that coupling by formulating multi-UAV path planning as a resource allocation problem, in which resources such as bandwidth are allocated across agents in service of mapping quality. Rather than treating resource allocation, motion planning, and low-level control as separate layers, we integrate them into a single unified framework. Every component is solved within the time constraint set by the fastest dynamics in the system, which in our case is the low-level controller. Under such restrictive constraints, optimal solutions to the resource allocation and motion planning problems cannot be computed in real time. Instead, we seek solutions that are feasible at every time step, with guaranteed bounds on suboptimality. Here, feasibility means preserving communication among the drones and with the central server, which directly determines the quality of the maps. At the core of this framework is a novel resource allocation method that guarantees these constraints are satisfied even as the team adapts to new information. The result is a principled approach to resilient, real-time multi-robot monitoring that can directly support human decision-making in high-stakes missions.
       </p>
     </div>
